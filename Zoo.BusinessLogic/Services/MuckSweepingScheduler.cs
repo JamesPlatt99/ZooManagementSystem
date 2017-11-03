@@ -5,30 +5,30 @@ using Zoo.BusinessLogic.Models.Animals;
 
 namespace Zoo.BusinessLogic.Services
 {
-    public class GroomingScheduler:IScheduler
+    public class MuckSweepingScheduler : IScheduler
     {
-        private static GroomingScheduler instance;
+        private static MuckSweepingScheduler instance;
 
-        public static GroomingScheduler Instance
+        public static MuckSweepingScheduler Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new GroomingScheduler();
+                    instance = new MuckSweepingScheduler();
                 }
 
                 return instance;
             }
         }
 
-        private GroomingScheduler()
+        private MuckSweepingScheduler()
         {
         }
 
         public void DisplayTaskInfo()
         {
-            Console.WriteLine("Grooming the animals...");
+            Console.WriteLine("Sweeping the animals...");
         }
 
         public void AssignJobs(IEnumerable<Keeper> keepers, IEnumerable<Animal> animals)
@@ -37,11 +37,9 @@ namespace Zoo.BusinessLogic.Services
             {
                 foreach (var animal in keeper.GetResponsibleAnimals())
                 {
-                    var groomableAnimal = animal as AnimalThatCanBeGroomed;
-
-                    if (groomableAnimal != null)
+                    if (animal is ICanHaveMuckSweptOut sweepableAnimal)
                     {
-                        keeper.GroomAnimal(groomableAnimal);
+                        keeper.SweepAnimal(sweepableAnimal);
                     }
                 }
             }

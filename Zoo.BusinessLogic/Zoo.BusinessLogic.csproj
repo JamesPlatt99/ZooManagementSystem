@@ -43,6 +43,8 @@
     <Compile Include="Config.cs" />
     <Compile Include="Models\Animals\Animal.cs" />
     <Compile Include="Models\Animals\AnimalThatCanBeGroomed.cs" />
+    <Compile Include="Models\Animals\GuineaFowl.cs" />
+    <Compile Include="Models\Animals\ICanHaveMuckSweptOut.cs" />
     <Compile Include="Models\Animals\Lion.cs" />
     <Compile Include="Models\Animals\Zebra.cs" />
     <Compile Include="Models\Animals\Rabbit.cs" />
@@ -50,6 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FeedingScheduler.cs" />
     <Compile Include="Services\GroomingScheduler.cs" />
+    <Compile Include="Services\IScheduler.cs" />
+    <Compile Include="Services\MuckSweepingScheduler.cs" />
+    <Compile Include="Services\Tasks.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
